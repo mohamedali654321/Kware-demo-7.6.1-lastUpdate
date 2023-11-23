@@ -1,0 +1,40 @@
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  nav.navbar {
+    display: none;
+  }
+  .header {
+    background-color: var(--ds-header-bg);
+  }
+}
+
+.navbar-brand img {
+  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+    height: var(--ds-header-logo-height-xs);
+  }
+}
+.navbar-toggler .navbar-toggler-icon {
+  background-image: none !important;
+  line-height: 1.5;
+}
+
+.navbar-toggler {
+  color: var(--ds-header-icon-color);
+
+  &:hover, &:focus {
+    color: var(--ds-header-icon-color-hover);
+  }
+}
+
+.header {
+  background-color: #FFF !important; //NU-edit
+  position: fixed !important;
+  width: 100%;
+  z-index: 999;
+  // -webkit-transform: translate3d(0,0,1px) !important;
+  // transform: translate3d(0,0,1px)!important;
+}
+
+nav{
+  height: 120px;
+  width: 100%;
+}
