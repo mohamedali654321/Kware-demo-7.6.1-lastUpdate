@@ -4,8 +4,7 @@
     <h2 *ngIf="scope"
         class="header"
         id="{{ scope.id }}">
-      c:\Users\Mo7amed-3li\Downloads\Kware-demo-7.6-lastUpdate-main\src\app\statistics-page\statistics-page\statistics-page.component.html
-    </h2>
+        {{ 'statistics.header' | kwareTranslate | translate: { scope: getName(scope) } }}    </h2>
   </ng-container>
 
   <ng-container *ngVar="reports$ | async as reports">

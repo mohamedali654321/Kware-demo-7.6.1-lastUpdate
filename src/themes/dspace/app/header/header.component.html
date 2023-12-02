@@ -1,8 +1,8 @@
-<header class="header">
+<header class="header" [ngClass]="{'header': !(handleScroll | async),'scrolledHeader': ((handleScroll | async)) }">
   <nav role="navigation" [attr.aria-label]="'nav.user.description' | translate" class="container navbar navbar-expand-md px-0">
     <div class="d-flex flex-grow-1">
       <a class="navbar-brand m-2" routerLink="/home">
-        <img src="assets/images/dspace-logo.svg" [attr.alt]="'menu.header.image.logo' | translate"/>
+        <img [src]="(handleScroll | async) ? (lang) ? 'assets/images/DSpace_logo_ar.png':'assets/images/dspace-logo.svg':(lang) ? 'assets/images/DSpace_logo_ar.png':'assets/images/dspace-logo.svg'" [attr.alt]="'menu.header.image.logo' | translate"/>
       </a>
     </div>
     <div class="navbar-buttons d-flex flex-grow-1 ml-auto justify-content-end align-items-center gapx-1">
