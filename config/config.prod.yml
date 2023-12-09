@@ -29,7 +29,7 @@ ui:
 rest:
   ssl: false
   host: 52.209.192.143
-  port: 8880
+  port: 8100
   # NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
   nameSpace: /server
 # rest:
