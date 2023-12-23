@@ -25,13 +25,15 @@
       <div class="d-flex" style="justify-content: space-between;">
         <div class="label_dage" >
           <ds-type-badge  *ngIf="showLabel" [object]="dso"></ds-type-badge> 
+          <ds-access-status-badge [object]="dso" class="pl-1"></ds-access-status-badge>
+
        </div>
        <div>
         <ds-publictaion-count style="font-size: 16px !important;"  [dso]="dso"></ds-publictaion-count>
        </div>     
        
       </div> 
-      <ds-truncatable-part [id]="dso.id" [minLines]="2" type="h4"  >
+      <ds-truncatable-part [id]="dso.id" [minLines]="2" type="h4" >
         <!-- kware-edit kwareTranslatePipe -->
         <!-- <h4 class="card-title" [innerHTML]="dsoTitle | kwareTranslate"></h4> -->
         <h4 class="card-title"><a [routerLink]="[itemPageRoute]">{{ dsoTitle  | kwareTranslate}}</a> 
@@ -39,7 +41,7 @@
         </h4>
       </ds-truncatable-part>
       <span class="text-muted">
-        <ds-truncatable-part [id]="dso.id" [minLines]="1"  >
+        <ds-truncatable-part [id]="dso.id" [minLines]="1" >
             <ng-container *ngIf="dso.firstMetadataValue('dc.publisher')
                 || dso.firstMetadataValue('dc.date.issued')">
                 <!-- kware-edit kwareTranslatePipe -->
@@ -66,7 +68,7 @@
                   *ngIf="!last"> • </span> </span>
       </div>
   </div> -->
-  <ds-truncatable-part [id]="dso.id" [minLines]="1"   >
+  <ds-truncatable-part [id]="dso.id" [minLines]="1"  >
     <div  *ngIf="dso.hasMetadata('dc.subject')"  >
       <div class="keys-info  ">
         <span class=" badge-info"   *ngFor="let keyword of keywords;let last=last;"><a  style="white-space: -webkit-nowrap !important;"  href="/search?query=&f.subject={{keyword}},equals" title="{{keyword | kwareTranslate}}">{{keyword | kwareTranslate}}</a><span style="color:#530a86 ;" *ngIf="!last"> • </span> </span>
@@ -78,7 +80,7 @@
   <!-- <span class="item-abstract card-text">
     <span *ngIf="dso.allMetadata(['dc.description']).length> 0"
         class="item-list-org-unit-description">
-        <ds-truncatable-part [id]="dso.id" [minLines]="3"  ><span
+        <ds-truncatable-part [id]="dso.id" [minLines]="3" ><span
                 [innerHTML]="removeMarkdown(firstMetadataValue('dc.description') | kwareTranslate)
                 "></span>
         </ds-truncatable-part>

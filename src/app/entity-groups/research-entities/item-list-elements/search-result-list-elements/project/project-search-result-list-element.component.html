@@ -23,8 +23,9 @@
         <div class="label_dage" >
           <ds-type-badge  *ngIf="showLabel" [object]="dso"></ds-type-badge>
           <span class="badge badge-info" style="background-color: #e8ebf3 !important;color: #222;" *ngIf="dso.hasMetadata('project.type')" >{{firstMetadataValue('project.type') | kwareTranslate}}</span>
+          <ds-access-status-badge [object]="dso" class="pl-1"></ds-access-status-badge>
+
        </div>
-        <ds-access-status-badge [object]="dso" class="pl-1"></ds-access-status-badge>
       </div>
       <a *ngIf="linkType != linkTypes.None" [target]="(linkType == linkTypes.ExternalLink) ? '_blank' : '_self'"
          rel="noopener noreferrer"

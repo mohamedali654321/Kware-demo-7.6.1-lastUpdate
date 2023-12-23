@@ -26,12 +26,19 @@ ui:
 #   port: 7077
 #   # NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
 #   nameSpace: /server
+
 rest:
-  ssl: false
-  host: 52.209.192.143
-  port: 8100
+  ssl: true
+  host: dspace.api.kwaretech.com
+  port: 443
   # NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
   nameSpace: /server
+# rest:
+#   ssl: false
+#   host: 52.209.192.143
+#   port: 8100
+#   # NOTE: Space is capitalized because 'namespace' is a reserved string in TypeScript
+#   nameSpace: /server
 # rest:
 #   ssl: true
 #   host: repo-madina.api.kwaretech.com

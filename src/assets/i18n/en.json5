@@ -5581,7 +5581,7 @@
 
   "access-status.metadata.only.listelement.badge": "Metadata only",
 
-  "access-status.open.access.listelement.badge": "Open Access",
+  "access-status.open.access.listelement.badge": "Open",
 
   "access-status.restricted.listelement.badge": "Restricted",
 
@@ -6475,7 +6475,7 @@
 
 
    "search.filters.has_content_in_access_status.metadata.only": "Metadata Only",
-   "search.filters.has_content_in_access_status.open.access": "Open Access" ,
+   "search.filters.has_content_in_access_status.open.access": "Open" ,
    "search.filters.has_content_in_access_status.restricted": "Restricted",
    "search.filters.has_content_in_access_status.unknown": "Unknown" ,
    "search.filters.has_content_in_access_status.embargo": "Embargo" ,
@@ -6600,6 +6600,39 @@
   "admin.metadata-import.page.toggle.url": "URL",
 
   "admin.metadata-import.page.urlMsg": "Insert the batch ZIP url to import",
+
+  'item.page.isbn':'ISBN',
+    'item.page.translator':'Translators',
+   'item.page.reviewer':'Reviewers',
+
+    'item.page.presenter':'Presenters',
+
+     "search.filters.applied.f.translator": "Translator",
+   "search.filters.applied.f.reviewer": "Reviewer",
+   "search.filters.applied.f.presenter": "Presenter",
+   'item.page.relationships.isPublisherOfPublication':'Publications',
+    'relationships.isPresenterOf.Person':'Presenters',
+   'relationships.isReviewerOf.Person':'Reviewers',
+    'relationships.isTranslatorOf.Person':'Translators',
+
+'submission.sections.describe.relationship-lookup.title.isTranslatorOfPublication':'Translators',
+'submission.sections.describe.relationship-lookup.search-tab.tab-title.isTranslatorOfPublication':'Local Translators ({{ count }})',
+
+'submission.sections.describe.relationship-lookup.title.isReviewerOfPublication':'Reviewers',
+'submission.sections.describe.relationship-lookup.search-tab.tab-title.isReviewerOfPublication':'Local Reviewers ({{ count }})',
+
+'submission.sections.describe.relationship-lookup.title.isPresenterOfPublication':'Presenters',
+'submission.sections.describe.relationship-lookup.search-tab.tab-title.isPresenterOfPublication':'Local Presenters ({{ count }})',
+
+'publication.page.publisherArabicEdition':'Publisher of the Arabic edition',
+'relationships.isArabicPublisherOf.OrgUnit':'Publishers of the Arabic edition',
+'item.page.relationships.isArabicPublisherOfPublication':'Publishers of the Arabic edition',
+'submission.sections.describe.relationship-lookup.title.isArabicPublisherOfPublication':'Publishers of the Arabic edition',
+'submission.sections.describe.relationship-lookup.search-tab.tab-title.isArabicPublisherOfPublication':'Local Publishers of the Arabic edition ({{ count }})',
+
+'publication.page.source':'Acquired library',
+
+"vocabulary-treeview.search.form.add": "Add",
 
 }
 

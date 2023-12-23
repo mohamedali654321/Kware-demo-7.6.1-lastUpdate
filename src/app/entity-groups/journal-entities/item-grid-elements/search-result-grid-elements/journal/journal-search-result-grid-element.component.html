@@ -22,8 +22,9 @@
     <div class="card-body" [ngClass]="{'fixed-height':(isCollapsed() | async)}">
       <div class="d-flex" style="justify-content: space-between;">
         <div class="label_dage" >
-          <span class="badge badge-info" style="background-color: #6aa3d5 !important;color: #FFF; margin-bottom: -2px;" *ngIf="dso.hasMetadata('dc.date.issued') || dso.hasMetadata('dc.date.issuedhijri')" >{{firstMetadataValue('dc.date.issued') ? firstMetadataValue('dc.date.issued') : firstMetadataValue('dc.date.issuedhijri') }}</span>
+          <!-- <span class="badge badge-info" style="background-color: #6aa3d5 !important;color: #FFF; margin-bottom: -2px;" *ngIf="dso.hasMetadata('dc.date.issued') || dso.hasMetadata('dc.date.issuedhijri')" >{{firstMetadataValue('dc.date.issued') ? firstMetadataValue('dc.date.issued') : firstMetadataValue('dc.date.issuedhijri') }}</span> -->
           <ds-type-badge  *ngIf="showLabel" [object]="dso"></ds-type-badge> 
+          <ds-access-status-badge [object]="dso" class="pl-1"></ds-access-status-badge>
        </div>
        <div>
         <ds-publictaion-count style="font-size: 16px !important;"  [dso]="dso"></ds-publictaion-count>
@@ -44,10 +45,12 @@
       <p *ngIf="dso.hasMetadata('creativework.editor')"
          class="item-publisher card-text text-muted">
         <ds-truncatable-part [id]="dso.id" [minLines]="1"  >
-          <span class="item-editor">{{firstMetadataValue('creativework.editor')}}</span>
+          <span class="item-editor">{{convertComma(((firstMetadataValue('creativework.editor')?.split(",")[0] | kwareTranslate) + ',' +  (firstMetadataValue('creativework.editor')?.split(",")[1] | kwareTranslate)))}}</span>
           <span *ngIf="dso.hasMetadata('creativework.publisher')" class="item-publisher">
             <span>, </span>
-            {{firstMetadataValue('creativework.publisher') | kwareTranslate}}
+            {{convertComma(((firstMetadataValue('creativework.publisher')?.split(",")[0] | kwareTranslate) + ',' +  (firstMetadataValue('creativework.publisher')?.split(",")[1] | kwareTranslate)))}}
+
+            <!-- {{firstMetadataValue('creativework.publisher') | kwareTranslate}} -->
           </span>
         </ds-truncatable-part>
       </p>

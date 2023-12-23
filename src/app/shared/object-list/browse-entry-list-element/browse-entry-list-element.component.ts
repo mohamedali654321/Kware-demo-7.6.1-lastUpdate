@@ -5,12 +5,13 @@ import { BrowseEntry } from '../../../core/shared/browse-entry.model';
 import { ViewMode } from '../../../core/shared/view-mode.model';
 import { listableObjectComponent } from '../../object-collection/shared/listable-object/listable-object.decorator';
 import { PaginationService } from '../../../core/pagination/pagination.service';
-import { Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { BBM_PAGINATION_ID } from '../../../browse-by/browse-by-metadata-page/browse-by-metadata-page.component';
 import { RouteService } from 'src/app/core/services/route.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DSONameService } from '../../../core/breadcrumbs/dso-name.service';
+import { hasValue } from '../../empty.util';
 
 @Component({
   selector: 'ds-browse-entry-list-element',
@@ -32,16 +33,23 @@ export class BrowseEntryListElementComponent extends AbstractListableElementComp
   EntityUrl:string;
   isEntity:boolean;
   isRights:boolean;
-
+  isAuthor:BehaviorSubject<boolean> = new BehaviorSubject(false);;
   constructor(
     public dsoNameService: DSONameService,
     protected paginationService: PaginationService,
     protected routeService: RouteService,
+    protected route: ActivatedRoute,
   ) {
     super(dsoNameService);
   }
 
   ngOnInit() {
+    this.route.data.subscribe(data=>{
+      data.id == 'author' ? this.isAuthor.next(true) : this.isAuthor.next(false) ;
+      console.log(data.id)
+      console.log(this.isAuthor)
+    })
+
     this.queryParams$ = this.getQueryParams();
     this.entryType=this.object._links;
     this.EntityUrl= this.entryType.items.href;
@@ -72,5 +80,17 @@ export class BrowseEntryListElementComponent extends AbstractListableElementComp
 
   getRights(name:string):string{
     return 'search.filters.rights.'+name;
+  }
+
+  convertComma(str: string): string{
+    let newstr = '';
+    if ((typeof window === 'object' && hasValue(window.localStorage)) && window.localStorage.getItem('selectedLangCode')  === 'ar'){
+      let regx = /;|,/gi;
+     newstr = str.replace(regx, '،');
+     return newstr;
+
+    } else {
+      return str;
+    }
   }
 }

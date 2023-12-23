@@ -1,7 +1,7 @@
 <div>
   <!-- Because this template is used by default, we will additionally test for representation type and display accordingly -->
   <span *ngIf="(mdRepresentation.representationType=='plain_text') && !isLink()" class="dont-break-out">
-    {{mdRepresentation.getValue()}}
+    {{mdRepresentation.getValue() | kwareTranslate}}
   </span>
   <a *ngIf="(mdRepresentation.representationType=='plain_text') && isLink()" class="dont-break-out"
   target="_blank" [href]="mdRepresentation.getValue() ">

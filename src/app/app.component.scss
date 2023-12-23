@@ -1277,9 +1277,9 @@ h4{
 
   justify-items: center;
 
-  span{
-    padding: 5px !important;
-  }
+  // span{
+  //   padding: 5px !important;
+  // }
 
 }
 
@@ -3145,5 +3145,11 @@ display: block;
         .navbar-nav{
           justify-content: center !important;
         }
+      }
+    }
+
+    ::ng-deep html[dir="rtl"] ds-vocabulary-treeview{
+      .input-group > .input-group-append > .btn{
+        border-radius: 0 !important;
       }
     }
